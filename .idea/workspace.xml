@@ -1303,7 +1303,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1475997151432</updated>
-      <workItem from="1475997152923" duration="23591000" />
+      <workItem from="1475997152923" duration="23678000" />
     </task>
     <task id="LOCAL-00001" summary="[master] - pushed project">
       <created>1476269886563</created>
@@ -1312,7 +1312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1476269886563</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[master] - pushed project">
+      <created>1476269935411</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1476269935411</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1348,7 +1355,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23591000" />
+    <option name="totallyTimeSpent" value="23678000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1145" extended-state="6" />
