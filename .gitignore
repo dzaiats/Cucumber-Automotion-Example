@@ -1,4 +1,4 @@
-.idea
-target
+/.idea
+/target
 example.iml
 phantomjsdriver.log
