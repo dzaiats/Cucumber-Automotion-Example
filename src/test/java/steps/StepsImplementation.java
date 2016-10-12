@@ -6,6 +6,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import environment.EnvironmentConstants;
+import environment.EnvironmentFactory;
 import http.helpers.EnvironmentHelper;
 import org.junit.Assert;
 import org.openqa.selenium.OutputType;
@@ -29,22 +31,22 @@ public class StepsImplementation {
     public void setup_driver(String driverType, String browserName) throws IOException {
         Map<String, String> map = new HashMap<String, String>();
         if (driverType.toLowerCase().equals("local")) {
-            map.put("IS_LOCAL", "TRUE");
+            map.put(EnvironmentConstants.IS_LOCAL, "TRUE");
         } else if (driverType.toLowerCase().equals("remote")) {
-            map.put("IS_REMOTE", "TRUE");
-            map.put("EXECUTOR", System.getenv("EXECUTOR"));
+            map.put(EnvironmentConstants.IS_REMOTE, "TRUE");
+            map.put(EnvironmentConstants.EXECUTOR, EnvironmentFactory.getRemoteUrlPath());
         } else if (driverType.toLowerCase().contains("mobile")) {
             String mobileDevice = driverType.split(":")[1].trim();
-            map.put("IS_REMOTE", "TRUE");
-            map.put("EXECUTOR", System.getenv("EXECUTOR"));
-            map.put("MOBILE_DEVICE_EMULATION", mobileDevice);
+            map.put(EnvironmentConstants.IS_REMOTE, "TRUE");
+            map.put(EnvironmentConstants.EXECUTOR, EnvironmentFactory.getRemoteUrlPath());
+            map.put(EnvironmentConstants.MOBILE_DEVICE_EMULATION, mobileDevice);
         } else if (driverType.toLowerCase().equals("mobile")) {
-            map.put("IS_MOBILE", "TRUE");
+            map.put(EnvironmentConstants.IS_MOBILE, "TRUE");
         } else if (driverType.toLowerCase().equals("headless")) {
-            map.put("IS_HEADLESS", "TRUE");
-            map.put("PHANTOM_JS_PATH", System.getenv("PHANTOM_JS_PATH"));
+            map.put(EnvironmentConstants.IS_HEADLESS, "TRUE");
+            map.put(EnvironmentConstants.PHANTOM_JS_PATH, EnvironmentFactory.getPhantomJsPath());
         }
-        map.put("BROWSER", browserName);
+        map.put(EnvironmentConstants.BROWSER, browserName);
         EnvironmentHelper.setEnv(map);
         WebDriverFactory driverFactory = new WebDriverFactory();
         driver = driverFactory.getDriver();
