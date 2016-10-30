@@ -26,24 +26,26 @@ public class HomePageVerification {
     }
 
     public String baseElementsArePresented() {
-        StringBuilder error = new StringBuilder();
+        StringBuilder errorMessage = new StringBuilder();
 
-        error.append(elementExists(page.mainLogo()));
+        try {
+            List<WebElement> elementsToVerify = new ArrayList<WebElement>();
 
+            elementsToVerify.add(page.logo());
+            elementsToVerify.add(page.topPhotos());
+            elementsToVerify.add(page.newPhotos());
+            elementsToVerify.add(page.myPhotos());
+            elementsToVerify.add(page.footer());
 
-        List<WebElement> elementsToVerify = new ArrayList<WebElement>();
+            if (!PageValidator.elementsAreAlignedProperly(elementsToVerify)) {
+                errorMessage.append("\nElements are aligned not properly");
+            }
 
-        elementsToVerify.add(page.topSection());
-        elementsToVerify.add(page.newSection());
-        elementsToVerify.add(page.mySection());
-
-        if (!PageValidator.elementsAreAlignedHorizontally(elementsToVerify)){
-            error.append("\nElements are aligned incorrectly");
+        } catch (Exception e) {
+            errorMessage.append(e.getCause().getMessage().split("\n")[0]);
         }
 
-        error.append(elementExists(page.footer()));
-
-        return error.toString();
+        return errorMessage.toString();
     }
 
 

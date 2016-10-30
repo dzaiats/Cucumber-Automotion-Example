@@ -7,26 +7,26 @@ import web.BaseWebMobileElement;
 
 public class HomePage extends BaseWebMobileElement {
     public HomePage(WebDriver driver) {
-        super(driver, 30);
+        super(driver, 10);
     }
 
-    public WebElement mainLogo() {
+    public WebElement logo(){
         return getWebElement(By.id("main-logo"));
     }
 
-    public WebElement topSection() {
-        return getWebElement(By.xpath("//*[contains(text(),'TOP')]"));
+    public WebElement topPhotos(){
+        return getWebElement(By.id("top-photos"));
     }
 
-    public WebElement newSection() {
-        return getWebElement(By.xpath("//*[contains(text(),'NEW')]"));
+    public WebElement newPhotos(){
+        return getWebElement(By.id("new-photos"));
     }
 
-    public WebElement mySection() {
-        return getWebElement(By.xpath("//*[contains(text(),'MY')]"));
+    public WebElement myPhotos(){
+        return getWebElement(By.id("my-photos"));
     }
 
-    public WebElement footer() {
+    public WebElement footer(){
         return getWebElement(By.id("footer"));
     }
 }
